@@ -42,8 +42,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Future<void> _loadDashboardData() async {
     try {
       // Cargar datos del usuario desde SharedPreferences o similar
-      final user = await _authService.getUser();
-      if (user != null) {
+      final response = await _authService.getCurrentUser();
+      if (response.success && response.data != null) {
+        final user = response.data!;
         setState(() {
           _userName = user.firstName;
           _isAdmin = user.isAdmin;

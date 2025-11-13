@@ -183,7 +183,7 @@ class _CartScreenState extends State<CartScreen> {
             itemCount: _cart!.items.length,
             itemBuilder: (context, index) {
               final item = _cart!.items[index];
-              return NeumorphicCard(
+              return Container(
                 margin: const EdgeInsets.only(bottom: 12),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -196,7 +196,7 @@ class _CartScreenState extends State<CartScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           image: DecorationImage(
-                            image: NetworkImage(item.producto.imagenUrl),
+                            image: NetworkImage(item.producto.imageUrl),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -294,59 +294,59 @@ class _CartScreenState extends State<CartScreen> {
         ),
         
         // Total y botón de checkout
-        Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.grey.shade50,
-            border: Border.top: BorderSide(color: Colors.grey.shade300)),
+Container(
+  padding: const EdgeInsets.all(16),
+  decoration: BoxDecoration(
+    color: Colors.grey.shade50,
+    border: Border(top: BorderSide(color: Colors.grey.shade300)), // ← Corregido aquí
+  ), // ← Esta coma estaba faltando
+  child: Column(
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Text(
+            'Total:',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Total:',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    'S/. ${_cart?.total.toStringAsFixed(2) ?? "0.00"}',
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(
-                    child: OutlinedButton(
-                      onPressed: _continueShopping,
-                      child: const Text('Seguir Comprando'),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: _cart != null && _cart!.items.isNotEmpty ? _proceedToCheckout : null,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                      ),
-                      child: const Text(
-                        'Pagar',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+          Text(
+            'S/. ${_cart?.total.toStringAsFixed(2) ?? "0.00"}',
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.green,
+            ),
           ),
-        ),
+        ],
+      ),
+      const SizedBox(height: 16),
+      Row(
+        children: [
+          Expanded(
+            child: OutlinedButton(
+              onPressed: _continueShopping,
+              child: const Text('Seguir Comprando'),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: ElevatedButton(
+              onPressed: _cart != null && _cart!.items.isNotEmpty ? _proceedToCheckout : null,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                padding: const EdgeInsets.symmetric(vertical: 16),
+              ),
+              child: const Text(
+                'Pagar',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ],
+  ),
+),
       ],
     );
   }

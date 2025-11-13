@@ -94,25 +94,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
       if (!mounted) return;
 
       if (response.success) {
-        _authService.showSuccessToast('¡Cuenta creada exitosamente!');
+  _authService.showSuccessToast('¡Cuenta creada exitosamente!');
 
-        final userId = response.data?['user_id'];
-        if (userId != null) {
-          // Redirigir a pantalla de verificación de email
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => EmailVerificationScreen(
-                email: _emailController.text.trim(),
-                username: _usernameController.text.trim(),
-                userId: userId,
-              ),
-            ),
-          );
-        } else {
-          _authService.showErrorToast('Error: No se recibió ID de usuario');
-        }
-      } else {
+  final userId = response.data?.user.id; // ← Cambiar aquí
+  if (userId != null) {
+    // Redirigir a pantalla de verificación de email
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EmailVerificationScreen(
+          email: _emailController.text.trim(),
+          username: _usernameController.text.trim(),
+          userId: userId,
+        ),
+      ),
+    );
+  } else {
+    _authService.showErrorToast('Error: No se recibió ID de usuario');
+  }
+}else {
         _authService.showErrorToast(response.error ?? 'Error en el registro');
       }
     } catch (e) {

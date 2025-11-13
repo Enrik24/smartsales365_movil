@@ -1,26 +1,26 @@
 // lib/screens/client/profile_screen.dart
-import 'package:flutter/material.dart';
-import '../../services/auth_service.dart';
-import '../../services/account_settings_service.dart';
-import '../../widgets/custom_bottom_navigation_bar.dart';
-import '../../widgets/neumorphic_card.dart';
-import '../../widgets/loading_indicator.dart';
-import '../../widgets/error_widget.dart';
-// --> CORRECCIÓN: Importar el archivo donde se define el modelo User
-import '../../models/smartsales_models.dart';
+  import 'package:flutter/material.dart';
+  import '../../services/auth_service.dart';
+  import '../../services/account_settings_service.dart';
+  import '../../widgets/custom_bottom_navigation_bar.dart';
+  import '../../widgets/neumorphic_card.dart';
+  import '../../widgets/loading_indicator.dart';
+  import '../../widgets/error_widget.dart';
+  // --> CORRECCIÓN: Importar el archivo donde se define el modelo User
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
 
-  @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
-}
+  class ProfileScreen extends StatefulWidget {
+    const ProfileScreen({super.key});
 
-class _ProfileScreenState extends State<ProfileScreen> {
-  // --> CORRECCIÓN: Nombres de clases actualizados
-  final _authService = AuthService();
-  final _accountService = AccountSettingsService();
-  User? _currentUser;
+    @override
+    State<ProfileScreen> createState() => _ProfileScreenState();
+  }
+
+  class _ProfileScreenState extends State<ProfileScreen> {
+    // --> CORRECCIÓN: Nombres de clases actualizados
+    final _authService = AuthService();
+    final _accountService = AccountSettingsService();
+   User? _currentUser;
 
   bool _isLoading = true;
   bool _isUpdating = false; // Estado para manejar la carga de la actualización
@@ -85,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void _fillControllers() {
     if (_currentUser != null) {
       _firstNameController.text = _currentUser!.firstName;
-      _lastNameController.text = _currentUser!.lastName;
+      _lastNameController.text = _currentUser!.apellido;
       _telefonoController.text = _currentUser!.telefono ?? '';
       _direccionController.text = _currentUser!.direccion ?? '';
     }
@@ -118,8 +118,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         // Actualiza los datos locales y sale del modo edición
         setState(() {
           _currentUser = _currentUser?.copyWith(
-            firstName: _firstNameController.text,
-            lastName: _lastNameController.text,
+            nombre: _firstNameController.text,
+            apellido: _lastNameController.text,
             telefono: _telefonoController.text,
             direccion: _direccionController.text,
           );
@@ -227,7 +227,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 16),
             Text(
-              '${_currentUser?.firstName} ${_currentUser?.lastName}',
+              '${_currentUser?.firstName} ${_currentUser?.apellido}',
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -467,32 +467,33 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
   }
 
   Future<void> _changePassword() async {
-    if (!(_formKey.currentState?.validate() ?? false)) {
-      return;
-    }
-
-    setState(() => _isLoading = true);
-
-    final result = await _accountService.changePassword(
-      oldPassword: _oldPasswordController.text,
-      newPassword: _newPasswordController.text,
-    );
-
-    if (!mounted) return;
-
-    setState(() => _isLoading = false);
-
-    if (result['success'] == true) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Contraseña cambiada exitosamente'), backgroundColor: Colors.green),
-      );
-      Navigator.of(context).pop();
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(result['error'] ?? 'Error al cambiar contraseña'), backgroundColor: Colors.red),
-      );
-    }
+  if (!(_formKey.currentState?.validate() ?? false)) {
+    return;
   }
+
+  setState(() => _isLoading = true);
+
+  final result = await _accountService.changePassword(
+    oldPassword: _oldPasswordController.text,
+    newPassword: _newPasswordController.text,
+    newPasswordConfirm: _confirmPasswordController.text, // ← Agregar este parámetro
+  );
+
+  if (!mounted) return;
+
+  setState(() => _isLoading = false);
+
+  if (result['success'] == true) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Contraseña cambiada exitosamente'), backgroundColor: Colors.green),
+    );
+    Navigator.of(context).pop();
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(result['error'] ?? 'Error al cambiar contraseña'), backgroundColor: Colors.red),
+    );
+  }
+}
 
   @override
   Widget build(BuildContext context) {

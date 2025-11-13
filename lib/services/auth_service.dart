@@ -17,6 +17,8 @@
     final bool isActive;
     final DateTime fechaRegistro;
     final DateTime? ultimoLogin;
+    final bool isAdmin;
+    final String role; // Asumiendo que tu backend tiene este campo
 
     User({
       required this.id,
@@ -29,13 +31,15 @@
       required this.isActive,
       required this.fechaRegistro,
       this.ultimoLogin,
+      required this.isAdmin,
+      required this.role, 
     });
 
     factory User.fromJson(Map<String, dynamic> json) {
       return User(
         id: json['id'] ?? 0,
         email: json['email'] ?? '',
-        nombre: json['nombre'] ?? json['first_name'] ?? '',
+        nombre: json['nombre'] ?? json['first_na  me'] ?? '',
         apellido: json['apellido'] ?? json['last_name'] ?? '',
         telefono: json['telefono'],
         direccion: json['direccion'],
@@ -47,6 +51,8 @@
             : json['last_login'] != null
               ? DateTime.parse(json['last_login'])
               : null,
+        isAdmin: false,
+        role: json['role'] ?? json['rol'] ?? 'user',
       );
     }
 
@@ -62,9 +68,41 @@
         'is_active': isActive,
         'fecha_registro': fechaRegistro.toIso8601String(),
         'ultimo_login': ultimoLogin?.toIso8601String(),
+        'is_admin': isAdmin,
+         'role': role,
       };
     }
+    // Método copyWith
+  User copyWith({
+    int? id,
+    String? email,
+    String? nombre,
+    String? apellido,
+    String? telefono,
+    String? direccion,
+    String? estado,
+    bool? isActive,
+    DateTime? fechaRegistro,
+    DateTime? ultimoLogin,
+    bool? isAdmin,
+    String? role,
+  }) {
+    return User(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      nombre: nombre ?? this.nombre,
+      apellido: apellido ?? this.apellido,
+      telefono: telefono ?? this.telefono,
+      direccion: direccion ?? this.direccion,
+      estado: estado ?? this.estado,
+      isActive: isActive ?? this.isActive,
+      fechaRegistro: fechaRegistro ?? this.fechaRegistro,
+      ultimoLogin: ultimoLogin ?? this.ultimoLogin,
+      isAdmin: isAdmin ?? this.isAdmin,
+      role: role ?? this.role,
+    );
 
+  }
     String get fullName => '$nombre $apellido';
     String get firstName => nombre;
   }
@@ -206,6 +244,62 @@
         );
       }
     }
+    // ✅ Registro de cliente específico
+  Future<ApiResponse<LoginResponse>> registerCliente(Map<String, dynamic> userData) async {
+    try {
+      final baseUrl = await IPDetection.getBaseUrl();
+      final url = Uri.parse('$baseUrl/api/users/registro-cliente/');
+      
+      final response = await http.post(
+        url,
+        headers: _defaultHeaders,
+        body: jsonEncode(userData),
+      ).timeout(const Duration(seconds: 10));
+
+      final responseData = jsonDecode(response.body);
+
+      if (response.statusCode == 201) {
+        final loginResponse = LoginResponse.fromJson(responseData);
+        
+        // Guardar tokens automáticamente después del registro
+        await saveToken(loginResponse.access);
+        await saveRefreshToken(loginResponse.refresh);
+
+        return ApiResponse<LoginResponse>(
+          success: true,
+          data: loginResponse,
+          message: 'Cliente registrado exitosamente',
+        );
+      } else {
+        String errorMessage = 'Error en el registro del cliente';
+        if (responseData['detail'] != null) {
+          errorMessage = responseData['detail'];
+        } else if (responseData['error'] != null) {
+          errorMessage = responseData['error'];
+        } else {
+          // Manejar errores de validación de campos
+          List<String> fieldErrors = [];
+          responseData.forEach((key, value) {
+            if (value is List && value.isNotEmpty) {
+              fieldErrors.add('${_formatFieldName(key)}: ${value.join(', ')}');
+            }
+          });
+          if (fieldErrors.isNotEmpty) {
+            errorMessage = fieldErrors.join('; ');
+          }
+        }
+        return ApiResponse<LoginResponse>(
+          success: false,
+          error: errorMessage,
+        );
+      }
+    } catch (e) {
+      return ApiResponse<LoginResponse>(
+        success: false,
+        error: 'Error de conexión: $e',
+      );
+    }
+  }
 
     // ✅ Registro usando el endpoint correcto
     Future<ApiResponse<LoginResponse>> register(RegisterData userData) async {
@@ -388,6 +482,95 @@
         );
       }
     }
+    // ✅ Método para reenviar código de verificación
+  Future<ApiResponse<void>> resendVerificationCode(int userId) async {
+    try {
+      final baseUrl = await IPDetection.getBaseUrl();
+      final url = Uri.parse('$baseUrl/api/users/reenviar-codigo-verificacion/');
+      
+      final response = await http.post(
+        url,
+        headers: _defaultHeaders,
+        body: jsonEncode({
+          'user_id': userId,
+        }),
+      ).timeout(const Duration(seconds: 10));
+
+      final responseData = jsonDecode(response.body);
+
+      if (response.statusCode == 200) {
+        return ApiResponse<void>(
+          success: true,
+          message: 'Código de verificación enviado exitosamente',
+        );
+      } else {
+        String errorMessage = 'Error al enviar código de verificación';
+        if (responseData['detail'] != null) {
+          errorMessage = responseData['detail'];
+        } else if (responseData['error'] != null) {
+          errorMessage = responseData['error'];
+        }
+        return ApiResponse<void>(
+          success: false,
+          error: errorMessage,
+        );
+      }
+    } catch (e) {
+      return ApiResponse<void>(
+        success: false,
+        error: 'Error de conexión: $e',
+      );
+    }
+  }
+
+  // ✅ Método para verificar código
+  Future<ApiResponse<LoginResponse>> verifyCode(int userId, String code) async {
+    try {
+      final baseUrl = await IPDetection.getBaseUrl();
+      final url = Uri.parse('$baseUrl/api/users/verificar-codigo/');
+      
+      final response = await http.post(
+        url,
+        headers: _defaultHeaders,
+        body: jsonEncode({
+          'user_id': userId,
+          'codigo': code,
+        }),
+      ).timeout(const Duration(seconds: 10));
+
+      final responseData = jsonDecode(response.body);
+
+      if (response.statusCode == 200) {
+        final loginResponse = LoginResponse.fromJson(responseData);
+        
+        // Guardar tokens después de la verificación exitosa
+        await saveToken(loginResponse.access);
+        await saveRefreshToken(loginResponse.refresh);
+
+        return ApiResponse<LoginResponse>(
+          success: true,
+          data: loginResponse,
+          message: 'Email verificado exitosamente',
+        );
+      } else {
+        String errorMessage = 'Código de verificación incorrecto';
+        if (responseData['detail'] != null) {
+          errorMessage = responseData['detail'];
+        } else if (responseData['error'] != null) {
+          errorMessage = responseData['error'];
+        }
+        return ApiResponse<LoginResponse>(
+          success: false,
+          error: errorMessage,
+        );
+      }
+    } catch (e) {
+      return ApiResponse<LoginResponse>(
+        success: false,
+        error: 'Error de conexión: $e',
+      );
+    }
+  }
 
     // ✅ Cambiar contraseña
     Future<ApiResponse<void>> changePassword({

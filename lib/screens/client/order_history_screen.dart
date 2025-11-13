@@ -304,7 +304,8 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
         Container(
           padding: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
-            border: Border.top: BorderSide(color: Colors.grey.shade300)),
+             border: Border(top: BorderSide(color: Colors.grey.shade300)),
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -415,8 +416,9 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
   }
 
   Widget _buildOrderCard(Order order) {
-    return NeumorphicCard(
+    return Container(
       margin: const EdgeInsets.only(bottom: 12),
+      child: NeumorphicCard(
       onTap: () => _showOrderDetail(order),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -487,6 +489,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
           ],
         ),
       ),
+    )
     );
   }
 

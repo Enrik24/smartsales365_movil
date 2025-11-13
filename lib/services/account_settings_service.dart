@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/ip_detection.dart';
-
+import 'auth_service.dart';
 class AccountSettingsService {
   // Headers por defecto
   static const Map<String, String> _defaultHeaders = {
@@ -200,5 +200,71 @@ class AccountSettingsService {
       'success': false, 
       'error': 'Funcionalidad de reenvío de verificación no implementada aún'
     };
+  }
+  Future<Map<String, dynamic>> updateUserProfile(Map<String, dynamic> updateData) async {
+    try {
+      final baseUrl = await IPDetection.getBaseUrl();
+      final authService = AuthService();
+      final token = await authService.getToken();
+      
+      if (token == null) {
+        return {'success': false, 'error': 'No autenticado'};
+      }
+
+      final url = Uri.parse('$baseUrl/api/users/usuarios/me/');
+      
+      final response = await http.put(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonEncode(updateData),
+      );
+
+      if (response.statusCode == 200) {
+        final responseData = jsonDecode(response.body);
+        return {
+          'success': true,
+          'data': responseData,
+          'message': 'Perfil actualizado exitosamente'
+        };
+      } else {
+        final errorData = jsonDecode(response.body);
+        String errorMessage = 'Error al actualizar perfil';
+        
+        // Manejar errores de validación
+        if (errorData is Map) {
+          final errors = <String>[];
+          errorData.forEach((key, value) {
+            if (value is List) {
+              errors.add('${_formatFieldName(key)}: ${value.join(', ')}');
+            }
+          });
+          if (errors.isNotEmpty) {
+            errorMessage = errors.join('; ');
+          } else if (errorData['detail'] != null) {
+            errorMessage = errorData['detail'];
+          }
+        }
+        
+        return {'success': false, 'error': errorMessage};
+      }
+    } catch (e) {
+      return {'success': false, 'error': 'Error de conexión: $e'};
+    }
+  }
+
+  // Método auxiliar para formatear nombres de campos
+  String _formatFieldName(String fieldName) {
+    final Map<String, String> fieldTranslations = {
+      'nombre': 'Nombre',
+      'apellido': 'Apellido',
+      'email': 'Correo electrónico',
+      'telefono': 'Teléfono',
+      'direccion': 'Dirección',
+      'password': 'Contraseña',
+    };
+    return fieldTranslations[fieldName] ?? fieldName;
   }
 }
