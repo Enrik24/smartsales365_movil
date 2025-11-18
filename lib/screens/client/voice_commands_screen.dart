@@ -78,33 +78,25 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
     setState(() {
       _isProcessing = true;
       _lastCommand = transcript;
+      _lastResponse = 'Procesando con IA...';
     });
 
     try {
-      // Procesar con OpenAI primero, si falla usa procesamiento local
+      // ✅ USAR EL NUEVO BACKEND CON OPENAI
       final response = await _voiceService.processWithOpenAI(transcript);
 
       setState(() {
         _isProcessing = false;
-        _lastResponse = response.message ?? response.error ?? 'Comando procesado';
+        _lastResponse = response.message ?? 
+                       response.error ?? 
+                       'Comando procesado con IA';
       });
 
       if (response.success) {
         _executeCommand(response);
         
-        // Agregar al historial local
-        _commandHistory.insert(0, VoiceCommandHistory(
-          id: DateTime.now().millisecondsSinceEpoch,
-          transcript: transcript,
-          processedText: response.message,
-          commandType: response.action ?? 'voice',
-          executionDate: DateTime.now(),
-          success: true,
-        ));
-
-        if (_commandHistory.length > 10) {
-          _commandHistory.removeLast();
-        }
+        // Recargar historial para mostrar el nuevo comando
+        await _loadHistoryAndSuggestions();
       }
     } catch (e) {
       setState(() {
@@ -115,6 +107,7 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
   }
 
   void _executeCommand(VoiceCommandResponse response) {
+    // ✅ MEJORADO: Manejar diferentes tipos de acciones
     if (response.action == 'navigate' && response.target != null) {
       Navigator.pushNamed(context, response.target!);
     } else if (response.action == 'search' && response.parameters != null) {
@@ -123,6 +116,18 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
         '/catalog', 
         arguments: response.parameters,
       );
+    } else if (response.action == 'report') {
+      // Navegar a pantalla de reportes con parámetros
+      Navigator.pushNamed(
+        context,
+        '/reports',
+        arguments: {
+          'tipo_reporte': response.parameters?['tipo_reporte'],
+          'fecha_inicio': response.parameters?['fecha_inicio'],
+          'fecha_fin': response.parameters?['fecha_fin'],
+          'formato': response.parameters?['formato'],
+        },
+      );
     }
 
     // Mostrar snackbar con la respuesta
@@ -130,6 +135,7 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
       SnackBar(
         content: Text(response.message ?? 'Comando ejecutado'),
         backgroundColor: response.success ? Colors.green : Colors.orange,
+        duration: const Duration(seconds: 3),
       ),
     );
   }
@@ -145,11 +151,13 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Comandos de Voz IA'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
         actions: [
           IconButton(
-            icon: const Icon(Icons.history),
+            icon: const Icon(Icons.refresh),
             onPressed: _loadHistoryAndSuggestions,
-            tooltip: 'Actualizar historial',
+            tooltip: 'Actualizar',
           ),
         ],
       ),
@@ -163,17 +171,14 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
-                    // Indicador de estado
                     _buildStatusIndicator(),
                     const SizedBox(height: 20),
                     
-                    // Comando y respuesta
                     if (_lastCommand.isNotEmpty) ...[
                       _buildCommandSection(),
                       const SizedBox(height: 16),
                     ],
                     
-                    // Botón de acción
                     _buildActionButton(),
                   ],
                 ),
@@ -198,6 +203,7 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
     Color statusColor = Colors.grey;
     IconData statusIcon = Icons.mic;
     String statusText = 'Listo para escuchar';
+    String? subText;
 
     if (_isListening) {
       statusColor = Colors.red;
@@ -205,20 +211,30 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
       statusText = 'Escuchando... Habla ahora';
     } else if (_isProcessing) {
       statusColor = Colors.orange;
-      statusIcon = Icons.autorenew;
+      statusIcon = Icons.auto_awesome;
       statusText = 'Procesando con IA...';
+      subText = 'Analizando tu comando';
     } else if (_lastResponse.isNotEmpty) {
-      statusColor = Colors.green;
-      statusIcon = Icons.check_circle;
+      statusColor = _lastResponse.contains('Error') ? Colors.red : Colors.green;
+      statusIcon = _lastResponse.contains('Error') ? Icons.error : Icons.check_circle;
       statusText = _lastResponse;
     }
 
     return Column(
       children: [
-        Icon(
-          statusIcon,
-          size: 64,
-          color: statusColor,
+        Stack(
+          alignment: Alignment.center,
+          children: [
+            Icon(
+              statusIcon,
+              size: 64,
+              color: statusColor,
+            ),
+            if (_isProcessing)
+              const CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
+              ),
+          ],
         ),
         const SizedBox(height: 12),
         Text(
@@ -230,6 +246,17 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
             fontWeight: FontWeight.w500,
           ),
         ),
+        if (subText != null) ...[
+          const SizedBox(height: 4),
+          Text(
+            subText,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.grey.shade600,
+            ),
+          ),
+        ],
         if (_isListening) ...[
           const SizedBox(height: 8),
           const LinearProgressIndicator(),
@@ -252,12 +279,18 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Comando detectado:',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue,
-                ),
+              Row(
+                children: [
+                  Icon(Icons.auto_awesome, size: 16, color: Colors.blue),
+                  const SizedBox(width: 8),
+                  const Text(
+                    'Comando detectado:',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 8),
               Text(
@@ -282,6 +315,7 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),
           ),
+          elevation: 2,
         ),
         child: _isProcessing
             ? const SizedBox(
@@ -319,7 +353,7 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Comandos Sugeridos:',
+          'Comandos Sugeridos por IA:',
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -328,6 +362,7 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
         const SizedBox(height: 12),
         ..._suggestedCommands.take(6).map((command) => Card(
           margin: const EdgeInsets.only(bottom: 8),
+          elevation: 2,
           child: ListTile(
             leading: Icon(Icons.assistant, color: Colors.purple.shade600),
             title: Text(
@@ -335,7 +370,7 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
               style: const TextStyle(fontWeight: FontWeight.w500),
             ),
             subtitle: Text(command.description),
-            trailing: Icon(Icons.arrow_forward_ios, size: 16),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
             onTap: () {
               setState(() {
                 _lastCommand = command.command;
@@ -372,6 +407,7 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
                 final command = _commandHistory[index];
                 return Card(
                   margin: const EdgeInsets.only(bottom: 8),
+                  elevation: 1,
                   child: ListTile(
                     leading: Icon(
                       command.success ? Icons.check_circle : Icons.error,
@@ -385,6 +421,7 @@ class _VoiceCommandsScreenState extends State<VoiceCommandsScreen> {
                     subtitle: Text(
                       '${command.executionDate.hour}:${command.executionDate.minute.toString().padLeft(2, '0')} - ${command.commandType}',
                     ),
+                    trailing: const Icon(Icons.replay, size: 16),
                     onTap: () {
                       setState(() {
                         _lastCommand = command.transcript;

@@ -1,0 +1,982 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.smartsales365_movil"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="36" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\debug\AndroidManifest.xml:6:5-66
+15-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\debug\AndroidManifest.xml:6:22-64
+16    <!--
+17     Required to query activities that can process text, see:
+18         https://developer.android.com/training/package-visibility and
+19         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+20
+21         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+22    -->
+23    <queries>
+23-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:40:5-45:15
+24        <intent>
+24-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:41:9-44:18
+25            <action android:name="android.intent.action.PROCESS_TEXT" />
+25-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:42:13-72
+25-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:42:21-70
+26
+27            <data android:mimeType="text/plain" />
+27-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+27-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:19-48
+28        </intent>
+29        <!-- Added to check the default browser that will host the AuthFlow. -->
+30        <intent>
+30-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:13:9-17:18
+31            <action android:name="android.intent.action.VIEW" />
+31-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:14:13-65
+31-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:14:21-62
+32
+33            <data android:scheme="http" />
+33-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+34        </intent> <!-- Added to check if Chrome is installed for browser-based payment authentication (e.g. 3DS1). -->
+35        <package android:name="com.android.chrome" /> <!-- Needs to be explicitly declared on Android R+ -->
+35-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:11:9-54
+35-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:11:18-51
+36        <package android:name="com.google.android.apps.maps" />
+36-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\lenovo\.gradle\caches\8.12\transforms\0de742b1e93a0d06df586efcec451df3\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:33:9-64
+36-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\lenovo\.gradle\caches\8.12\transforms\0de742b1e93a0d06df586efcec451df3\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:33:18-61
+37    </queries>
+38
+39    <uses-permission android:name="android.permission.WAKE_LOCK" />
+39-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:8:5-68
+39-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:8:22-65
+40    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permissions options for the `notification` group -->
+40-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:9:5-79
+40-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:9:22-76
+41    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+41-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:11:5-77
+41-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:11:22-74
+42    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+42-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6269b49ad81d7c345635bbe740c0653a\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:26:5-82
+42-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6269b49ad81d7c345635bbe740c0653a\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:26:22-79
+43    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+43-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:25:5-79
+43-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:25:22-76
+44    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
+44-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:26:5-88
+44-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:26:22-85
+45    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+45-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:27:5-82
+45-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:27:22-79
+46    <uses-permission android:name="android.permission.VIBRATE" />
+46-->[:flutter_local_notifications] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications-18.0.1\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:7:5-66
+46-->[:flutter_local_notifications] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications-18.0.1\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:7:22-63
+47    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+47-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:26:5-110
+47-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:26:22-107
+48
+49    <uses-feature
+49-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\lenovo\.gradle\caches\8.12\transforms\0de742b1e93a0d06df586efcec451df3\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:26:5-28:35
+50        android:glEsVersion="0x00020000"
+50-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\lenovo\.gradle\caches\8.12\transforms\0de742b1e93a0d06df586efcec451df3\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:27:9-41
+51        android:required="true" />
+51-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\lenovo\.gradle\caches\8.12\transforms\0de742b1e93a0d06df586efcec451df3\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:28:9-32
+52
+53    <permission
+53-->[androidx.core:core:1.13.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\b1eb6682c3f06d5937f76fce498ba76c\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+54        android:name="com.example.smartsales365_movil.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+54-->[androidx.core:core:1.13.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\b1eb6682c3f06d5937f76fce498ba76c\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+55        android:protectionLevel="signature" />
+55-->[androidx.core:core:1.13.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\b1eb6682c3f06d5937f76fce498ba76c\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+56
+57    <uses-permission android:name="com.example.smartsales365_movil.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+57-->[androidx.core:core:1.13.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\b1eb6682c3f06d5937f76fce498ba76c\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+57-->[androidx.core:core:1.13.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\b1eb6682c3f06d5937f76fce498ba76c\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+58
+59    <application
+60        android:name="android.app.Application"
+61        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+61-->[androidx.core:core:1.13.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\b1eb6682c3f06d5937f76fce498ba76c\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+62        android:debuggable="true"
+63        android:extractNativeLibs="false"
+64        android:icon="@mipmap/ic_launcher"
+65        android:label="smartsales365_movil" >
+66        <activity
+67            android:name="com.example.smartsales365_movil.MainActivity"
+68            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+69            android:exported="true"
+70            android:hardwareAccelerated="true"
+71            android:launchMode="singleTop"
+72            android:taskAffinity=""
+73            android:theme="@style/LaunchTheme"
+74            android:windowSoftInputMode="adjustResize" >
+75
+76            <!--
+77                 Specifies an Android theme to apply to this Activity as soon as
+78                 the Android process has started. This theme is visible to the user
+79                 while the Flutter UI initializes. After that, this theme continues
+80                 to determine the Window background behind the Flutter UI.
+81            -->
+82            <meta-data
+83                android:name="io.flutter.embedding.android.NormalTheme"
+84                android:resource="@style/NormalTheme" />
+85
+86            <intent-filter>
+87                <action android:name="android.intent.action.MAIN" />
+88
+89                <category android:name="android.intent.category.LAUNCHER" />
+90            </intent-filter>
+91        </activity>
+92        <!--
+93             Don't delete the meta-data below.
+94             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+95        -->
+96        <meta-data
+97            android:name="flutterEmbedding"
+98            android:value="2" />
+99        <!--
+100           Declares a provider which allows us to store files to share in
+101           '.../caches/share_plus' and grant the receiving action access
+102        -->
+103        <provider
+103-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:13:9-21:20
+104            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
+104-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:14:13-77
+105            android:authorities="com.example.smartsales365_movil.flutter.share_provider"
+105-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:15:13-74
+106            android:exported="false"
+106-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:16:13-37
+107            android:grantUriPermissions="true" >
+107-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:17:13-47
+108            <meta-data
+108-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:18:13-20:68
+109                android:name="android.support.FILE_PROVIDER_PATHS"
+109-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:19:17-67
+110                android:resource="@xml/flutter_share_file_paths" />
+110-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:20:17-65
+111        </provider>
+112        <!--
+113           This manifest declared broadcast receiver allows us to use an explicit
+114           Intent when creating a PendingItent to be informed of the user's choice
+115        -->
+116        <receiver
+116-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:26:9-32:20
+117            android:name="dev.fluttercommunity.plus.share.SharePlusPendingIntent"
+117-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:27:13-82
+118            android:exported="false" >
+118-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:28:13-37
+119            <intent-filter>
+119-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:29:13-31:29
+120                <action android:name="EXTRA_CHOSEN_COMPONENT" />
+120-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:30:17-65
+120-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:30:25-62
+121            </intent-filter>
+122        </receiver>
+123
+124        <service
+124-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:14:9-17:72
+125            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+125-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:15:13-107
+126            android:exported="false"
+126-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:16:13-37
+127            android:permission="android.permission.BIND_JOB_SERVICE" />
+127-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:17:13-69
+128        <service
+128-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:18:9-24:19
+129            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+129-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:19:13-97
+130            android:exported="false" >
+130-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:20:13-37
+131            <intent-filter>
+131-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:21:13-23:29
+132                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+132-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:22:17-78
+132-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:22:25-75
+133            </intent-filter>
+134        </service>
+135
+136        <receiver
+136-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:26:9-33:20
+137            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+137-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:27:13-98
+138            android:exported="true"
+138-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:28:13-36
+139            android:permission="com.google.android.c2dm.permission.SEND" >
+139-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:29:13-73
+140            <intent-filter>
+140-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:30:13-32:29
+141                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+141-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:31:17-81
+141-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:31:25-78
+142            </intent-filter>
+143        </receiver>
+144
+145        <service
+145-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:35:9-39:19
+146            android:name="com.google.firebase.components.ComponentDiscoveryService"
+146-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:35:18-89
+147            android:directBootAware="true"
+147-->[com.google.firebase:firebase-common:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfe2c8615f8671e630cb11ae0ebb9e9\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:32:13-43
+148            android:exported="false" >
+148-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6269b49ad81d7c345635bbe740c0653a\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:31:13-37
+149            <meta-data
+149-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:36:13-38:85
+150                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+150-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:37:17-128
+151                android:value="com.google.firebase.components.ComponentRegistrar" />
+151-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:38:17-82
+152            <meta-data
+152-->[:firebase_core] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-2.32.0\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:9:13-11:85
+153                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+153-->[:firebase_core] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-2.32.0\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:10:17-124
+154                android:value="com.google.firebase.components.ComponentRegistrar" />
+154-->[:firebase_core] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-2.32.0\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:11:17-82
+155            <meta-data
+155-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6269b49ad81d7c345635bbe740c0653a\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:32:13-34:85
+156                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+156-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6269b49ad81d7c345635bbe740c0653a\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:33:17-96
+157                android:value="com.google.firebase.components.ComponentRegistrar" />
+157-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6269b49ad81d7c345635bbe740c0653a\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:34:17-82
+158            <meta-data
+158-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:57:13-59:85
+159                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+159-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:58:17-122
+160                android:value="com.google.firebase.components.ComponentRegistrar" />
+160-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:59:17-82
+161            <meta-data
+161-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:60:13-62:85
+162                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+162-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:61:17-119
+163                android:value="com.google.firebase.components.ComponentRegistrar" />
+163-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:62:17-82
+164            <meta-data
+164-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:37:13-39:85
+165                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+165-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:38:17-139
+166                android:value="com.google.firebase.components.ComponentRegistrar" />
+166-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:39:17-82
+167            <meta-data
+167-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\b4087c15cdca737c4d4b391a16ba1e7d\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:15:13-17:85
+168                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+168-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\b4087c15cdca737c4d4b391a16ba1e7d\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:16:17-130
+169                android:value="com.google.firebase.components.ComponentRegistrar" />
+169-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\b4087c15cdca737c4d4b391a16ba1e7d\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:17:17-82
+170            <meta-data
+170-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\b4087c15cdca737c4d4b391a16ba1e7d\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:18:13-20:85
+171                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+171-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\b4087c15cdca737c4d4b391a16ba1e7d\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:19:17-127
+172                android:value="com.google.firebase.components.ComponentRegistrar" />
+172-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\b4087c15cdca737c4d4b391a16ba1e7d\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:20:17-82
+173            <meta-data
+173-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\afd6b9f7063687c80adbaa24a01db60b\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:12:13-14:85
+174                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+174-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\afd6b9f7063687c80adbaa24a01db60b\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:13:17-116
+175                android:value="com.google.firebase.components.ComponentRegistrar" />
+175-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\afd6b9f7063687c80adbaa24a01db60b\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:14:17-82
+176            <meta-data
+176-->[com.google.firebase:firebase-common:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfe2c8615f8671e630cb11ae0ebb9e9\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:35:13-37:85
+177                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+177-->[com.google.firebase:firebase-common:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfe2c8615f8671e630cb11ae0ebb9e9\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:36:17-109
+178                android:value="com.google.firebase.components.ComponentRegistrar" />
+178-->[com.google.firebase:firebase-common:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfe2c8615f8671e630cb11ae0ebb9e9\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:37:17-82
+179            <meta-data
+179-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\lenovo\.gradle\caches\8.12\transforms\60c512c0d50563a78adb2225ab104a45\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:27:13-29:85
+180                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+180-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\lenovo\.gradle\caches\8.12\transforms\60c512c0d50563a78adb2225ab104a45\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:28:17-115
+181                android:value="com.google.firebase.components.ComponentRegistrar" />
+181-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\lenovo\.gradle\caches\8.12\transforms\60c512c0d50563a78adb2225ab104a45\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:29:17-82
+182        </service>
+183
+184        <provider
+184-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:41:9-45:38
+185            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+185-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:42:13-102
+186            android:authorities="com.example.smartsales365_movil.flutterfirebasemessaginginitprovider"
+186-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:43:13-88
+187            android:exported="false"
+187-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:44:13-37
+188            android:initOrder="99" />
+188-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:45:13-35
+189
+190        <receiver
+190-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:29:9-40:20
+191            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+191-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:30:13-78
+192            android:exported="true"
+192-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:31:13-36
+193            android:permission="com.google.android.c2dm.permission.SEND" >
+193-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:32:13-73
+194            <intent-filter>
+194-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:30:13-32:29
+195                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+195-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:31:17-81
+195-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:31:25-78
+196            </intent-filter>
+197
+198            <meta-data
+198-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:37:13-39:40
+199                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+199-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:38:17-92
+200                android:value="true" />
+200-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:39:17-37
+201        </receiver>
+202        <!--
+203             FirebaseMessagingService performs security checks at runtime,
+204             but set to not exported to explicitly avoid allowing another app to call it.
+205        -->
+206        <service
+206-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:46:9-53:19
+207            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+207-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:47:13-82
+208            android:directBootAware="true"
+208-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:48:13-43
+209            android:exported="false" >
+209-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3b64a07e01a29af677493fb34fd76f61\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:49:13-37
+210            <intent-filter android:priority="-500" >
+210-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:21:13-23:29
+211                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+211-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:22:17-78
+211-->[:firebase_messaging] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-14.7.10\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:22:25-75
+212            </intent-filter>
+213        </service>
+214
+215        <property
+215-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:30:9-32:61
+216            android:name="android.adservices.AD_SERVICES_CONFIG"
+216-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:31:13-65
+217            android:resource="@xml/ga_ad_services_config" />
+217-->[com.google.android.gms:play-services-measurement-api:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\4a9ffde2043b6bf493b71d406cfe9215\transformed\jetified-play-services-measurement-api-21.6.1\AndroidManifest.xml:32:13-58
+218
+219        <provider
+219-->[com.google.firebase:firebase-common:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfe2c8615f8671e630cb11ae0ebb9e9\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:23:9-28:39
+220            android:name="com.google.firebase.provider.FirebaseInitProvider"
+220-->[com.google.firebase:firebase-common:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfe2c8615f8671e630cb11ae0ebb9e9\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:24:13-77
+221            android:authorities="com.example.smartsales365_movil.firebaseinitprovider"
+221-->[com.google.firebase:firebase-common:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfe2c8615f8671e630cb11ae0ebb9e9\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:25:13-72
+222            android:directBootAware="true"
+222-->[com.google.firebase:firebase-common:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfe2c8615f8671e630cb11ae0ebb9e9\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:26:13-43
+223            android:exported="false"
+223-->[com.google.firebase:firebase-common:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfe2c8615f8671e630cb11ae0ebb9e9\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:27:13-37
+224            android:initOrder="100" />
+224-->[com.google.firebase:firebase-common:20.4.3] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfe2c8615f8671e630cb11ae0ebb9e9\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:28:13-36
+225
+226        <activity
+226-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:21:9-65:20
+227            android:name="com.stripe.android.financialconnections.FinancialConnectionsSheetRedirectActivity"
+227-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:22:13-109
+228            android:exported="true"
+228-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:23:13-36
+229            android:launchMode="singleTask" >
+229-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:24:13-44
+230            <intent-filter>
+230-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:25:13-64:29
+231                <action android:name="android.intent.action.VIEW" />
+231-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:14:13-65
+231-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:14:21-62
+232
+233                <category android:name="android.intent.category.DEFAULT" />
+233-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:28:17-76
+233-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:28:27-73
+234                <category android:name="android.intent.category.BROWSABLE" />
+234-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:29:17-78
+234-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:29:27-75
+235
+236                <!-- Returning from app2app: return_url is triggered to reopen web AuthFlow and poll accounts. -->
+237                <data
+237-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+238                    android:host="link-accounts"
+239                    android:pathPrefix="/com.example.smartsales365_movil/authentication_return"
+240                    android:scheme="stripe-auth" />
+241
+242                <!-- Returning from app2app: return_url is triggered to reopen native AuthFlow and poll accounts. -->
+243                <data
+243-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+244                    android:host="link-native-accounts"
+245                    android:pathPrefix="/com.example.smartsales365_movil/authentication_return"
+246                    android:scheme="stripe-auth" />
+247
+248                <!-- End of web AuthFlow success and cancel URIs that begin with "stripe-auth://link-accounts/{app-id}/...” -->
+249                <data
+249-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+250                    android:host="link-accounts"
+251                    android:path="/com.example.smartsales365_movil/success"
+252                    android:scheme="stripe-auth" />
+253                <data
+253-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+254                    android:host="link-accounts"
+255                    android:path="/com.example.smartsales365_movil/cancel"
+256                    android:scheme="stripe-auth" />
+257
+258                <!-- Opening app2app: Web flow triggers stripe-auth://native-redirect/{app-id}/http://web-that-redirects-to-native -->
+259                <data
+259-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+260                    android:host="native-redirect"
+261                    android:pathPrefix="/com.example.smartsales365_movil"
+262                    android:scheme="stripe-auth" />
+263
+264                <!-- Accepts success/cancel/fail URIs that begin with "stripe://auth-redirect” -->
+265                <data
+265-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+266                    android:host="auth-redirect"
+267                    android:pathPrefix="/com.example.smartsales365_movil"
+268                    android:scheme="stripe" />
+269            </intent-filter>
+270        </activity>
+271        <activity
+271-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:66:9-69:77
+272            android:name="com.stripe.android.financialconnections.FinancialConnectionsSheetActivity"
+272-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:67:13-101
+273            android:exported="false"
+273-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:68:13-37
+274            android:theme="@style/StripeFinancialConnectionsDefaultTheme" />
+274-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:69:13-74
+275        <activity
+275-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:70:9-74:58
+276            android:name="com.stripe.android.financialconnections.ui.FinancialConnectionsSheetNativeActivity"
+276-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:71:13-110
+277            android:exported="false"
+277-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:72:13-37
+278            android:theme="@style/StripeFinancialConnectionsDefaultTheme"
+278-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:73:13-74
+279            android:windowSoftInputMode="adjustResize" />
+279-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:74:13-55
+280
+281        <provider
+281-->[:printing] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:8:9-16:20
+282            android:name="net.nfet.flutter.printing.PrintFileProvider"
+282-->[:printing] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:9:13-71
+283            android:authorities="com.example.smartsales365_movil.flutter.printing"
+283-->[:printing] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:10:13-68
+284            android:exported="false"
+284-->[:printing] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:11:13-37
+285            android:grantUriPermissions="true" >
+285-->[:printing] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:12:13-47
+286            <meta-data
+286-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:18:13-20:68
+287                android:name="android.support.FILE_PROVIDER_PATHS"
+287-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:19:17-67
+288                android:resource="@xml/flutter_printing_file_paths" />
+288-->[:share_plus] C:\Users\lenovo\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-7.2.2\android\build\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:20:17-65
+289        </provider>
+290
+291        <uses-library
+291-->[androidx.window:window:1.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6ca1db17970615e3e029777992983e6b\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
+292            android:name="androidx.window.extensions"
+292-->[androidx.window:window:1.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6ca1db17970615e3e029777992983e6b\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
+293            android:required="false" />
+293-->[androidx.window:window:1.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6ca1db17970615e3e029777992983e6b\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
+294        <uses-library
+294-->[androidx.window:window:1.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6ca1db17970615e3e029777992983e6b\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
+295            android:name="androidx.window.sidecar"
+295-->[androidx.window:window:1.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6ca1db17970615e3e029777992983e6b\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
+296            android:required="false" />
+296-->[androidx.window:window:1.2.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\6ca1db17970615e3e029777992983e6b\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
+297
+298        <receiver
+298-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:29:9-33:20
+299            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+299-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:30:13-85
+300            android:enabled="true"
+300-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:31:13-35
+301            android:exported="false" >
+301-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:32:13-37
+302        </receiver>
+303
+304        <service
+304-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:35:9-38:40
+305            android:name="com.google.android.gms.measurement.AppMeasurementService"
+305-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:36:13-84
+306            android:enabled="true"
+306-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:37:13-35
+307            android:exported="false" />
+307-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:38:13-37
+308        <service
+308-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:39:9-43:72
+309            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+309-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:40:13-87
+310            android:enabled="true"
+310-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:41:13-35
+311            android:exported="false"
+311-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:42:13-37
+312            android:permission="android.permission.BIND_JOB_SERVICE" />
+312-->[com.google.android.gms:play-services-measurement:21.6.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\109448fd4a5bd0be478343b738f3754e\transformed\jetified-play-services-measurement-21.6.1\AndroidManifest.xml:43:13-69
+313
+314        <activity
+314-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:8:9-11:69
+315            android:name="com.stripe.android.paymentsheet.PaymentSheetActivity"
+315-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:9:13-80
+316            android:exported="false"
+316-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:10:13-37
+317            android:theme="@style/StripePaymentSheetDefaultTheme" />
+317-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:11:13-66
+318        <activity
+318-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:12:9-15:69
+319            android:name="com.stripe.android.paymentsheet.PaymentOptionsActivity"
+319-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:13:13-82
+320            android:exported="false"
+320-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:14:13-37
+321            android:theme="@style/StripePaymentSheetDefaultTheme" />
+321-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:15:13-66
+322        <activity
+322-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:16:9-19:69
+323            android:name="com.stripe.android.customersheet.CustomerSheetActivity"
+323-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:17:13-82
+324            android:exported="false"
+324-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:18:13-37
+325            android:theme="@style/StripePaymentSheetDefaultTheme" />
+325-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:19:13-66
+326        <activity
+326-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:20:9-23:69
+327            android:name="com.stripe.android.paymentsheet.addresselement.AddressElementActivity"
+327-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:21:13-97
+328            android:exported="false"
+328-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:22:13-37
+329            android:theme="@style/StripePaymentSheetDefaultTheme" />
+329-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:23:13-66
+330        <activity
+330-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:24:9-27:69
+331            android:name="com.stripe.android.paymentsheet.addresselement.AutocompleteActivity"
+331-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:25:13-95
+332            android:exported="false"
+332-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:26:13-37
+333            android:theme="@style/StripePaymentSheetDefaultTheme" />
+333-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:27:13-66
+334        <activity
+334-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:28:9-31:69
+335            android:name="com.stripe.android.paymentsheet.paymentdatacollection.bacs.BacsMandateConfirmationActivity"
+335-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:29:13-118
+336            android:exported="false"
+336-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:30:13-37
+337            android:theme="@style/StripePaymentSheetDefaultTheme" />
+337-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:31:13-66
+338        <activity
+338-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:32:9-35:69
+339            android:name="com.stripe.android.paymentsheet.paymentdatacollection.polling.PollingActivity"
+339-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:33:13-105
+340            android:exported="false"
+340-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:34:13-37
+341            android:theme="@style/StripePaymentSheetDefaultTheme" />
+341-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:35:13-66
+342        <activity
+342-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:36:9-39:69
+343            android:name="com.stripe.android.paymentsheet.ui.SepaMandateActivity"
+343-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:37:13-82
+344            android:exported="false"
+344-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:38:13-37
+345            android:theme="@style/StripePaymentSheetDefaultTheme" />
+345-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:39:13-66
+346        <activity
+346-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:40:9-43:68
+347            android:name="com.stripe.android.paymentsheet.ExternalPaymentMethodProxyActivity"
+347-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:41:13-94
+348            android:exported="false"
+348-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:42:13-37
+349            android:theme="@style/StripePayLauncherDefaultTheme" />
+349-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:43:13-65
+350        <activity
+350-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:44:9-47:68
+351            android:name="com.stripe.android.paymentelement.confirmation.cpms.CustomPaymentMethodProxyActivity"
+351-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:45:13-112
+352            android:exported="false"
+352-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:46:13-37
+353            android:theme="@style/StripePayLauncherDefaultTheme" />
+353-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:47:13-65
+354        <activity
+354-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:48:9-50:69
+355            android:name="com.stripe.android.paymentsheet.paymentdatacollection.cvcrecollection.CvcRecollectionActivity"
+355-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:49:13-121
+356            android:theme="@style/StripePaymentSheetDefaultTheme" />
+356-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:50:13-66
+357        <activity
+357-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:51:9-53:69
+358            android:name="com.stripe.android.paymentelement.embedded.form.FormActivity"
+358-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:52:13-88
+359            android:theme="@style/StripePaymentSheetDefaultTheme" />
+359-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:53:13-66
+360        <activity
+360-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:54:9-56:69
+361            android:name="com.stripe.android.paymentelement.embedded.manage.ManageActivity"
+361-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:55:13-92
+362            android:theme="@style/StripePaymentSheetDefaultTheme" />
+362-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:56:13-66
+363        <activity
+363-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:57:9-62:69
+364            android:name="com.stripe.android.link.LinkActivity"
+364-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:58:13-64
+365            android:autoRemoveFromRecents="true"
+365-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:59:13-49
+366            android:exported="false"
+366-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:60:13-37
+367            android:label="@string/stripe_link"
+367-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:61:13-48
+368            android:theme="@style/StripePaymentSheetDefaultTheme" />
+368-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:62:13-66
+369        <activity
+369-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:63:9-68:61
+370            android:name="com.stripe.android.link.LinkForegroundActivity"
+370-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:64:13-74
+371            android:autoRemoveFromRecents="true"
+371-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:65:13-49
+372            android:configChanges="orientation|keyboard|keyboardHidden|screenLayout|screenSize|smallestScreenSize"
+372-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:66:13-115
+373            android:launchMode="singleTop"
+373-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:67:13-43
+374            android:theme="@style/StripeTransparentTheme" />
+374-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:68:13-58
+375        <activity
+375-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:69:9-86:20
+376            android:name="com.stripe.android.link.LinkRedirectHandlerActivity"
+376-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:70:13-79
+377            android:autoRemoveFromRecents="true"
+377-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:71:13-49
+378            android:exported="true"
+378-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:72:13-36
+379            android:launchMode="singleInstance"
+379-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:73:13-48
+380            android:theme="@style/StripeTransparentTheme" >
+380-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:74:13-58
+381            <intent-filter>
+381-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:75:13-85:29
+382                <action android:name="android.intent.action.VIEW" />
+382-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:14:13-65
+382-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:14:21-62
+383
+384                <category android:name="android.intent.category.DEFAULT" />
+384-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:28:17-76
+384-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:28:27-73
+385                <category android:name="android.intent.category.BROWSABLE" />
+385-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:29:17-78
+385-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:29:27-75
+386
+387                <data
+387-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+388                    android:host="complete"
+389                    android:path="/com.example.smartsales365_movil"
+390                    android:scheme="link-popup" />
+391            </intent-filter>
+392        </activity>
+393        <activity
+393-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:87:9-89:69
+394            android:name="com.stripe.android.shoppay.ShopPayActivity"
+394-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:88:13-70
+395            android:theme="@style/StripePaymentSheetDefaultTheme" />
+395-->[com.stripe:paymentsheet:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\471ea8cd683b9e6202e17a90cdc17afd\transformed\jetified-paymentsheet-21.26.1\AndroidManifest.xml:89:13-66
+396        <activity
+396-->[com.stripe:payments-ui-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\e722f6a4ae82eda6d8f8d20c3cb0becd\transformed\jetified-payments-ui-core-21.26.1\AndroidManifest.xml:8:9-11:69
+397            android:name="com.stripe.android.ui.core.cardscan.CardScanActivity"
+397-->[com.stripe:payments-ui-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\e722f6a4ae82eda6d8f8d20c3cb0becd\transformed\jetified-payments-ui-core-21.26.1\AndroidManifest.xml:9:13-80
+398            android:exported="false"
+398-->[com.stripe:payments-ui-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\e722f6a4ae82eda6d8f8d20c3cb0becd\transformed\jetified-payments-ui-core-21.26.1\AndroidManifest.xml:10:13-37
+399            android:theme="@style/StripePaymentSheetDefaultTheme" />
+399-->[com.stripe:payments-ui-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\e722f6a4ae82eda6d8f8d20c3cb0becd\transformed\jetified-payments-ui-core-21.26.1\AndroidManifest.xml:11:13-66
+400        <activity
+400-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:15:9-18:57
+401            android:name="com.stripe.android.view.PaymentAuthWebViewActivity"
+401-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:16:13-78
+402            android:exported="false"
+402-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:17:13-37
+403            android:theme="@style/StripeDefaultTheme" />
+403-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:18:13-54
+404        <activity
+404-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:19:9-22:61
+405            android:name="com.stripe.android.view.PaymentRelayActivity"
+405-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:20:13-72
+406            android:exported="false"
+406-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:21:13-37
+407            android:theme="@style/StripeTransparentTheme" />
+407-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:22:13-58
+408        <!--
+409        Set android:launchMode="singleTop" so that the StripeBrowserLauncherActivity instance that
+410        launched the browser Activity will also handle the return URL deep link.
+411        -->
+412        <activity
+412-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:28:9-32:61
+413            android:name="com.stripe.android.payments.StripeBrowserLauncherActivity"
+413-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:29:13-85
+414            android:exported="false"
+414-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:30:13-37
+415            android:launchMode="singleTask"
+415-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:31:13-44
+416            android:theme="@style/StripeTransparentTheme" />
+416-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:32:13-58
+417        <activity
+417-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:33:9-50:20
+418            android:name="com.stripe.android.payments.StripeBrowserProxyReturnActivity"
+418-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:34:13-88
+419            android:exported="true"
+419-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:35:13-36
+420            android:launchMode="singleTask"
+420-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:36:13-44
+421            android:theme="@style/StripeTransparentTheme" >
+421-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:37:13-58
+422            <intent-filter>
+422-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:38:13-49:29
+423                <action android:name="android.intent.action.VIEW" />
+423-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:14:13-65
+423-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:14:21-62
+424
+425                <category android:name="android.intent.category.DEFAULT" />
+425-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:28:17-76
+425-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:28:27-73
+426                <category android:name="android.intent.category.BROWSABLE" />
+426-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:29:17-78
+426-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:29:27-75
+427
+428                <!-- Must match `DefaultReturnUrl#value`. -->
+429                <data
+429-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+430                    android:host="payment_return_url"
+431                    android:path="/com.example.smartsales365_movil"
+432                    android:scheme="stripesdk" />
+433            </intent-filter>
+434        </activity>
+435        <activity
+435-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:51:9-54:57
+436            android:name="com.stripe.android.payments.core.authentication.threeds2.Stripe3ds2TransactionActivity"
+436-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:52:13-114
+437            android:exported="false"
+437-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:53:13-37
+438            android:theme="@style/StripeDefaultTheme" />
+438-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:54:13-54
+439        <activity
+439-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:55:9-58:66
+440            android:name="com.stripe.android.googlepaylauncher.GooglePayLauncherActivity"
+440-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:56:13-90
+441            android:exported="false"
+441-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:57:13-37
+442            android:theme="@style/StripeGooglePayDefaultTheme" />
+442-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:58:13-63
+443        <activity
+443-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:59:9-62:66
+444            android:name="com.stripe.android.googlepaylauncher.GooglePayPaymentMethodLauncherActivity"
+444-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:60:13-103
+445            android:exported="false"
+445-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:61:13-37
+446            android:theme="@style/StripeGooglePayDefaultTheme" />
+446-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:62:13-63
+447        <activity
+447-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:63:9-66:68
+448            android:name="com.stripe.android.payments.paymentlauncher.PaymentLauncherConfirmationActivity"
+448-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:64:13-107
+449            android:exported="false"
+449-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:65:13-37
+450            android:theme="@style/StripePayLauncherDefaultTheme" />
+450-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:66:13-65
+451        <activity
+451-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:67:9-70:61
+452            android:name="com.stripe.android.payments.bankaccount.ui.CollectBankAccountActivity"
+452-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:68:13-97
+453            android:exported="false"
+453-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:69:13-37
+454            android:theme="@style/StripeTransparentTheme" />
+454-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:70:13-58
+455        <activity
+455-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:71:9-74:61
+456            android:name="com.stripe.android.challenge.PassiveChallengeActivity"
+456-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:72:13-81
+457            android:exported="false"
+457-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:73:13-37
+458            android:theme="@style/StripeTransparentTheme" />
+458-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:74:13-58
+459        <activity
+459-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:75:9-78:61
+460            android:name="com.stripe.android.challenge.warmer.activity.PassiveChallengeWarmerActivity"
+460-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:76:13-103
+461            android:exported="false"
+461-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:77:13-37
+462            android:theme="@style/StripeTransparentTheme" />
+462-->[com.stripe:payments-core:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3de5323a32aa29a59d37b34640f532e9\transformed\jetified-payments-core-21.26.1\AndroidManifest.xml:78:13-58
+463        <activity
+463-->[com.stripe:stripe-3ds2-android:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3c6a531c81691b5bb39bd058ca3c59f7\transformed\jetified-stripe-3ds2-android-21.26.1\AndroidManifest.xml:8:9-12:54
+464            android:name="com.stripe.android.stripe3ds2.views.ChallengeActivity"
+464-->[com.stripe:stripe-3ds2-android:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3c6a531c81691b5bb39bd058ca3c59f7\transformed\jetified-stripe-3ds2-android-21.26.1\AndroidManifest.xml:9:13-81
+465            android:configChanges="orientation|screenSize"
+465-->[com.stripe:stripe-3ds2-android:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3c6a531c81691b5bb39bd058ca3c59f7\transformed\jetified-stripe-3ds2-android-21.26.1\AndroidManifest.xml:10:13-59
+466            android:exported="false"
+466-->[com.stripe:stripe-3ds2-android:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3c6a531c81691b5bb39bd058ca3c59f7\transformed\jetified-stripe-3ds2-android-21.26.1\AndroidManifest.xml:11:13-37
+467            android:theme="@style/Stripe3DS2Theme" />
+467-->[com.stripe:stripe-3ds2-android:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\3c6a531c81691b5bb39bd058ca3c59f7\transformed\jetified-stripe-3ds2-android-21.26.1\AndroidManifest.xml:12:13-51
+468        <activity
+468-->[com.stripe:financial-connections-lite:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\079b39aef12c69f96e20e6c8b7c0a7ff\transformed\jetified-financial-connections-lite-21.26.1\AndroidManifest.xml:8:9-23:20
+469            android:name="com.stripe.android.financialconnections.lite.FinancialConnectionsSheetLiteRedirectActivity"
+469-->[com.stripe:financial-connections-lite:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\079b39aef12c69f96e20e6c8b7c0a7ff\transformed\jetified-financial-connections-lite-21.26.1\AndroidManifest.xml:9:13-118
+470            android:exported="true"
+470-->[com.stripe:financial-connections-lite:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\079b39aef12c69f96e20e6c8b7c0a7ff\transformed\jetified-financial-connections-lite-21.26.1\AndroidManifest.xml:10:13-36
+471            android:launchMode="singleTask" >
+471-->[com.stripe:financial-connections-lite:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\079b39aef12c69f96e20e6c8b7c0a7ff\transformed\jetified-financial-connections-lite-21.26.1\AndroidManifest.xml:11:13-44
+472            <intent-filter>
+472-->[com.stripe:financial-connections-lite:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\079b39aef12c69f96e20e6c8b7c0a7ff\transformed\jetified-financial-connections-lite-21.26.1\AndroidManifest.xml:12:13-22:29
+473                <action android:name="android.intent.action.VIEW" />
+473-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:14:13-65
+473-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:14:21-62
+474
+475                <category android:name="android.intent.category.DEFAULT" />
+475-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:28:17-76
+475-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:28:27-73
+476                <category android:name="android.intent.category.BROWSABLE" />
+476-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:29:17-78
+476-->[com.stripe:financial-connections:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\8e2c8ba254c71cd7cc929722c26e4a12\transformed\jetified-financial-connections-21.26.1\AndroidManifest.xml:29:27-75
+477
+478                <data
+478-->C:\Users\lenovo\Proyectosmart\smartsales365_movil\android\app\src\main\AndroidManifest.xml:43:13-50
+479                    android:host="financial-connections-lite"
+480                    android:pathPrefix="/com.example.smartsales365_movil/auth_redirect"
+481                    android:scheme="stripe" />
+482            </intent-filter>
+483        </activity>
+484        <activity
+484-->[com.stripe:financial-connections-lite:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\079b39aef12c69f96e20e6c8b7c0a7ff\transformed\jetified-financial-connections-lite-21.26.1\AndroidManifest.xml:24:9-26:69
+485            android:name="com.stripe.android.financialconnections.lite.FinancialConnectionsSheetLiteActivity"
+485-->[com.stripe:financial-connections-lite:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\079b39aef12c69f96e20e6c8b7c0a7ff\transformed\jetified-financial-connections-lite-21.26.1\AndroidManifest.xml:25:13-110
+486            android:theme="@style/StripeBottomSheetActivityTheme" />
+486-->[com.stripe:financial-connections-lite:21.26.1] C:\Users\lenovo\.gradle\caches\8.12\transforms\079b39aef12c69f96e20e6c8b7c0a7ff\transformed\jetified-financial-connections-lite-21.26.1\AndroidManifest.xml:26:13-66
+487
+488        <provider
+488-->[androidx.emoji2:emoji2:1.3.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\91563463dceceeb56ff13891862e8b2a\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+489            android:name="androidx.startup.InitializationProvider"
+489-->[androidx.emoji2:emoji2:1.3.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\91563463dceceeb56ff13891862e8b2a\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
+490            android:authorities="com.example.smartsales365_movil.androidx-startup"
+490-->[androidx.emoji2:emoji2:1.3.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\91563463dceceeb56ff13891862e8b2a\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
+491            android:exported="false" >
+491-->[androidx.emoji2:emoji2:1.3.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\91563463dceceeb56ff13891862e8b2a\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
+492            <meta-data
+492-->[androidx.emoji2:emoji2:1.3.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\91563463dceceeb56ff13891862e8b2a\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+493                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+493-->[androidx.emoji2:emoji2:1.3.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\91563463dceceeb56ff13891862e8b2a\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
+494                android:value="androidx.startup" />
+494-->[androidx.emoji2:emoji2:1.3.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\91563463dceceeb56ff13891862e8b2a\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
+495            <meta-data
+495-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\lenovo\.gradle\caches\8.12\transforms\2822cbeec5890052f99e9f6685774681\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+496                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+496-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\lenovo\.gradle\caches\8.12\transforms\2822cbeec5890052f99e9f6685774681\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+497                android:value="androidx.startup" />
+497-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\lenovo\.gradle\caches\8.12\transforms\2822cbeec5890052f99e9f6685774681\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+498            <meta-data
+498-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+499                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+499-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+500                android:value="androidx.startup" />
+500-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+501        </provider> <!-- Needs to be explicitly declared on P+ -->
+502        <uses-library
+502-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\lenovo\.gradle\caches\8.12\transforms\0de742b1e93a0d06df586efcec451df3\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:39:9-41:40
+503            android:name="org.apache.http.legacy"
+503-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\lenovo\.gradle\caches\8.12\transforms\0de742b1e93a0d06df586efcec451df3\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:40:13-50
+504            android:required="false" />
+504-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\lenovo\.gradle\caches\8.12\transforms\0de742b1e93a0d06df586efcec451df3\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:41:13-37
+505
+506        <activity
+506-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\3915244acf96d0e98821143a825a2d4c\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:9-173
+507            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+507-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\3915244acf96d0e98821143a825a2d4c\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:19-85
+508            android:exported="false"
+508-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\3915244acf96d0e98821143a825a2d4c\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:146-170
+509            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+509-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\3915244acf96d0e98821143a825a2d4c\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:86-145
+510
+511        <uses-library
+511-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\lenovo\.gradle\caches\8.12\transforms\cbf7a44f6efd73b2cc4d5586c5873c5a\transformed\jetified-ads-adservices-1.0.0-beta05\AndroidManifest.xml:23:9-25:40
+512            android:name="android.ext.adservices"
+512-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\lenovo\.gradle\caches\8.12\transforms\cbf7a44f6efd73b2cc4d5586c5873c5a\transformed\jetified-ads-adservices-1.0.0-beta05\AndroidManifest.xml:24:13-50
+513            android:required="false" />
+513-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\lenovo\.gradle\caches\8.12\transforms\cbf7a44f6efd73b2cc4d5586c5873c5a\transformed\jetified-ads-adservices-1.0.0-beta05\AndroidManifest.xml:25:13-37
+514
+515        <meta-data
+515-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\d506bf2346cc95726434b8028187244b\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
+516            android:name="com.google.android.gms.version"
+516-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\d506bf2346cc95726434b8028187244b\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
+517            android:value="@integer/google_play_services_version" />
+517-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\d506bf2346cc95726434b8028187244b\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+518
+519        <receiver
+519-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+520            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+520-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+521            android:directBootAware="false"
+521-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+522            android:enabled="true"
+522-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+523            android:exported="true"
+523-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+524            android:permission="android.permission.DUMP" >
+524-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+525            <intent-filter>
+525-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+526                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+526-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+526-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+527            </intent-filter>
+528            <intent-filter>
+528-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+529                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+529-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+529-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+530            </intent-filter>
+531            <intent-filter>
+531-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+532                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+532-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+532-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+533            </intent-filter>
+534            <intent-filter>
+534-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+535                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+535-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+535-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\acd569caa193870be1c9a7558bcbe87a\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+536            </intent-filter>
+537        </receiver>
+538
+539        <service
+539-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\164d128053c5508559e46eb008630547\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:28:9-34:19
+540            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+540-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\164d128053c5508559e46eb008630547\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:29:13-103
+541            android:exported="false" >
+541-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\164d128053c5508559e46eb008630547\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:30:13-37
+542            <meta-data
+542-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\164d128053c5508559e46eb008630547\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:31:13-33:39
+543                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+543-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\164d128053c5508559e46eb008630547\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:32:17-94
+544                android:value="cct" />
+544-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\164d128053c5508559e46eb008630547\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:33:17-36
+545        </service>
+546        <service
+546-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfff5b70d8338610cd136b9377859f4\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:26:9-30:19
+547            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+547-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfff5b70d8338610cd136b9377859f4\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:27:13-117
+548            android:exported="false"
+548-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfff5b70d8338610cd136b9377859f4\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:28:13-37
+549            android:permission="android.permission.BIND_JOB_SERVICE" >
+549-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfff5b70d8338610cd136b9377859f4\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:29:13-69
+550        </service>
+551
+552        <receiver
+552-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfff5b70d8338610cd136b9377859f4\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:32:9-34:40
+553            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+553-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfff5b70d8338610cd136b9377859f4\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:33:13-132
+554            android:exported="false" />
+554-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\lenovo\.gradle\caches\8.12\transforms\9cfff5b70d8338610cd136b9377859f4\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:34:13-37
+555
+556        <meta-data
+556-->[com.google.android.instantapps:instantapps:1.1.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\83013fd7d62358c2ecafce864c8581b6\transformed\jetified-instantapps-1.1.0\AndroidManifest.xml:10:9-12:33
+557            android:name="aia-compat-api-min-version"
+557-->[com.google.android.instantapps:instantapps:1.1.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\83013fd7d62358c2ecafce864c8581b6\transformed\jetified-instantapps-1.1.0\AndroidManifest.xml:11:13-54
+558            android:value="1" /> <!-- The activities will be merged into the manifest of the hosting app. -->
+558-->[com.google.android.instantapps:instantapps:1.1.0] C:\Users\lenovo\.gradle\caches\8.12\transforms\83013fd7d62358c2ecafce864c8581b6\transformed\jetified-instantapps-1.1.0\AndroidManifest.xml:12:13-30
+559        <activity
+559-->[com.google.android.play:core-common:2.0.4] C:\Users\lenovo\.gradle\caches\8.12\transforms\f535248a41f7e66f9618d72edbed39cb\transformed\jetified-core-common-2.0.4\AndroidManifest.xml:14:9-18:65
+560            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+560-->[com.google.android.play:core-common:2.0.4] C:\Users\lenovo\.gradle\caches\8.12\transforms\f535248a41f7e66f9618d72edbed39cb\transformed\jetified-core-common-2.0.4\AndroidManifest.xml:15:13-93
+561            android:exported="false"
+561-->[com.google.android.play:core-common:2.0.4] C:\Users\lenovo\.gradle\caches\8.12\transforms\f535248a41f7e66f9618d72edbed39cb\transformed\jetified-core-common-2.0.4\AndroidManifest.xml:16:13-37
+562            android:stateNotNeeded="true"
+562-->[com.google.android.play:core-common:2.0.4] C:\Users\lenovo\.gradle\caches\8.12\transforms\f535248a41f7e66f9618d72edbed39cb\transformed\jetified-core-common-2.0.4\AndroidManifest.xml:17:13-42
+563            android:theme="@style/Theme.PlayCore.Transparent" />
+563-->[com.google.android.play:core-common:2.0.4] C:\Users\lenovo\.gradle\caches\8.12\transforms\f535248a41f7e66f9618d72edbed39cb\transformed\jetified-core-common-2.0.4\AndroidManifest.xml:18:13-62
+564    </application>
+565
+566</manifest>

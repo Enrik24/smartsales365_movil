@@ -25,6 +25,18 @@ class Product {
     required this.fechaCreacion,
     this.inventario,
   });
+  Product.empty()
+      : id = 0,
+        sku = '',
+        name = 'Producto no disponible', // Un nombre descriptivo para placeholders
+        description = '',
+        price = 0.0,
+        category = '',
+        brand = '',
+        imageUrl = '', // Puedes usar una URL de imagen de placeholder si tienes una
+        estado = 'inactivo',
+        fechaCreacion = DateTime.now(),
+        inventario = null; // Los campos opci
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(

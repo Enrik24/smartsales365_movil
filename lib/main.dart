@@ -81,7 +81,7 @@ class SmartSalesApp extends StatelessWidget {
         ),
         cardTheme: CardThemeData(
           elevation: 4,
-          shadowColor: Colors.deepPurple.withOpacity(0.2),
+          shadowColor: Colors.deepPurple,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -150,7 +150,6 @@ class _AuthWrapperState extends State<AuthWrapper> {
 
     // Redirigir según autenticación
     if (_isAuthenticated) {
-      // TODO: Redirigir según tipo de usuario
       return const ClientHomeScreen();
     } else {
       return const LoginScreen();
@@ -221,18 +220,18 @@ class _AuthWrapperState extends State<AuthWrapper> {
                   ),
                 ],
               ),
-              child: Column(
+              child: const Column(
                 children: [
-                  const CircularProgressIndicator(
+                  CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(Colors.deepPurple),
                     strokeWidth: 3,
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                   Text(
                     'Cargando...',
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.deepPurple.shade700,
+                      color: Colors.deepPurple,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
